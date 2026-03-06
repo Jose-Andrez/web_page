@@ -1,0 +1,116 @@
+/* estilo0.css - Versión mejorada 2026 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2d3748;
+    background-color: #f7fafc;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #2b6cb0 0%, #2c5282 100%);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1.2rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #bee3f8;
+}
+
+/* Main */
+main {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+main h1 {
+    color: #2b6cb0;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.4rem;
+}
+
+section {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+section h2 {
+    color: #2c5282;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 3px solid #bee3f8;
+    font-size: 1.6rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+strong {
+    color: #2d3748;
+}
+
+/* Imagen de perfil - siempre cuadrada, centrada y con buen aspecto */
+.profile-img-container {
+    display: flex;
+    justify-content: center;       /* centra horizontalmente */
+    margin: 2rem 0;                /* espacio arriba y abajo */
+}
+
+.profile-img-container img {
+    width: 220px;                  /* tamaño que prefieras: 200px, 240px, etc. */
+    height: 220px;
+    object-fit: cover;             /* mantiene proporción y recorta lo sobrante */
+    border-radius: 12px;           /* bordes suaves (o 50% para círculo) */
+    border: 5px solid #ebf8ff;
+    box-shadow: 
+        0 10px 25px rgba(43, 108, 176, 0.18),
+        0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer */
+footer {
+    background: #2c5282;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
