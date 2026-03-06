@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartelera de Películas</title>
+
+    
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto 20px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+        .slide {
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        #buttons {
+            text-align: center;
+            margin: 20px 0 30px;
+        }
+        #buttons button {
+            background-color: rgba(120, 120, 120, 0.5);
+            color: white;
+            border: none;
+            width: 55px;
+            height: 55px;
+            margin: 0 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        #buttons button:hover {
+            background-color: #ffd700;
+            color: #000;
+            transform: scale(1.18);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.75);
+        }
+        #description {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.15em;
+            line-height: 1.6;
+            min-height: 140px;
+            background: rgba(20, 20, 20, 0.6);
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        #description.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="carousel">
+        <div class="slide">
+            <img src="imagenes/toy-story-5.jpg" alt="Toy Story 5">
+        </div>
+        <div class="slide">
+            <img src="imagenes/avengers-endgame-.jpg" alt="Avengers Endgame">
+        </div>
+        <div class="slide">
+            <img src="imagenes/wonder-woman-1984.jpg" alt="Mujer Maravilla">
+        </div>
+    </div>
+    <div id="buttons">
+        <button data-index="0">1</button>
+        <button data-index="1">2</button>
+        <button data-index="2">3</button>
+    </div>
+    <div id="description"></div>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const buttons = document.querySelectorAll('#buttons button');
+        const descriptionEl = document.getElementById('description');
+        const descriptions = [
+            "Woody, Buzz y el resto de los juguetes se enfrentan a un nuevo desafío cuando la tecnología moderna comienza a reemplazar a los juguetes tradicionales. Los amigos deberán demostrar que la imaginación sigue siendo la mejor forma de jugar.",
+            "Tras la devastadora derrota frente a Thanos, los Vengadores supervivientes se reúnen para intentar revertir el desastre que cambió el destino del universo. En una última misión arriesgada, deberán enfrentarse al sacrificio, al pasado y a una batalla final que decidirá el futuro de toda la humanidad.",
+            "Diana, princesa de las amazonas, abandona su hogar oculto para enfrentarse al mundo de los hombres cuando descubre una gran guerra que amenaza a la humanidad. Armada con su fuerza, coraje y compasión, deberá descubrir su verdadero destino como protectora de la justicia."
+        ];
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            currentIndex = index;
+        }
+        showSlide(0);
+        setInterval(() => {
+            let next = (currentIndex + 1) % slides.length;
+            showSlide(next);
+        }, 5000);
+        buttons.forEach(button => {
+            const index = parseInt(button.dataset.index);
+
+            button.addEventListener('mouseenter', () => {
+                descriptionEl.textContent = descriptions[index];
+                descriptionEl.classList.add('visible');
+            });
+            button.addEventListener('mouseleave', () => {
+                descriptionEl.textContent = '';
+                descriptionEl.classList.remove('visible');
+            });
+            button.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+    </script>
+
+</body>
+</html>
